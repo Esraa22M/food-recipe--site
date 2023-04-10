@@ -1,0 +1,6 @@
+.recipes--preview {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100vh;
+  grid-auto-rows: 1fr;
+}

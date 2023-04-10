@@ -1,0 +1,46 @@
+.cooking--steps {
+  padding: 1em;
+  &__header,
+  &__sub-header {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 1em;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    line-height: 1.5;
+  }
+  &__sub-header {
+    font-size: 1rem;
+    margin-top: 1rem;
+    span {
+      color: var(--dark-color);
+      margin-left: 0.5em;
+    }
+  }
+  &__info {
+    width: 90%;
+    margin: 2em auto;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .btn-cooking--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  .btn-cooking {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    padding: 0.5em 3em;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-radius: 1em;
+  }
+  .btn-cooking:hover {
+    transform: scaleX(1em);
+  }
+}

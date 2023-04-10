@@ -1,0 +1,41 @@
+.recipe--preview__details {
+  &__info {
+    padding: 0 1em;
+    width: 90%;
+    margin: 2rem auto;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    justify-content: space-between;
+    &__time {
+      align-items: center;
+      display: flex;
+      &__icon {
+        color: var(--primary-color);
+        font-size: 1rem;
+      }
+      cursor: pointer;
+      &__bookmark {
+        cursor: pointer;
+        padding: 1rem 1.25rem;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        background-color: var(--primary-color);
+      }
+
+      &__cooking-time {
+        margin-left: 0.5em;
+        & > span:last-child {
+          margin-left: 0.25rem;
+        }
+      }
+      &__servings,
+      &__counter,
+      &__counter > *:last-child {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

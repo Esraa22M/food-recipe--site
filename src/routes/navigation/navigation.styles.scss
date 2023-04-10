@@ -1,0 +1,11 @@
+.navigation--container__header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1em;
+  align-items: center;
+  &--logo {
+    height: 4rem;
+    display: block;
+  }
+}

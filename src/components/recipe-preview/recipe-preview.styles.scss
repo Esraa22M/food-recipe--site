@@ -1,0 +1,15 @@
+.recipe-preview {
+  background-color: var(--light-grey);
+  height: 100%;
+  border-left: 0.25px solid var(--light-grey1);
+  &__main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    height: 20rem;
+  }
+}

@@ -1,0 +1,27 @@
+.search--form {
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+
+  transition: all 0.3s;
+  background-color: var(--light-color);
+  &:focus-within {
+    transform: translateY(-2px);
+  }
+  &__input {
+    border: none;
+    font-size: 1.7rem;
+    color: var(--dark-color);
+    font-size: 1rem;
+    width: 30rem;
+    background-color: inherit;
+    &:focus-within {
+      border: none;
+      outline: none;
+    }
+    &::placeholder {
+      font-size: 1.15rem;
+    }
+  }
+}

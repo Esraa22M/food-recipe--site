@@ -1,0 +1,33 @@
+.recipe-preview__fig {
+  height: 23rem;
+  opacity: 0.9;
+  position: relative;
+  background-color: var(--dark-color);
+  border: 1px solid var(--primary-color);
+  &__img {
+    display: block;
+    height: 100%;
+    margin: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__title {
+    position: absolute;
+    top: 86%;
+    right: 25%;
+    width: 22rem;
+    opacity: 0.9;
+    z-index: 60;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: skew(-45deg);
+    color: var(--light-color);
+    background: var(--primary-color);
+  }
+}

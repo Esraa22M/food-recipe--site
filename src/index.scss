@@ -1,0 +1,50 @@
+/*----colors----*/
+:root {
+  --primary-color: #f38e82;
+  --secondary-color: #f9f5f3;
+  --light-color: #ffff;
+  --light-grey: #f2efee;
+  --dark-color: #615551;
+  --light-grey1: #c0c0c0;
+}
+/*---resting--**/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.wrapper {
+  background-color: var(--primary-color);
+}
+.container {
+  width: 90%;
+  margin: auto;
+  background-color: var(--secondary-color);
+}

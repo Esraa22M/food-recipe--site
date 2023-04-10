@@ -1,0 +1,39 @@
+.recipe--preview__ingredients {
+  background-color: rgb(248, 248, 250);
+  color: grey;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  &__header {
+    text-align: center;
+    padding: 2em;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    line-height: 1.5;
+  }
+  &__container {
+    display: grid;
+    width: 95%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    padding: 0 1em;
+    &__item {
+      text-align: left;
+      padding: 1em;
+      & > *:first-child {
+        font-size: 0.8rem;
+      }
+      &__quantity {
+        color: var(--primary-color);
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.8rem;
+      }
+      span {
+        margin-left: 0.25em;
+      }
+    }
+  }
+}

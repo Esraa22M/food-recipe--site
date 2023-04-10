@@ -1,0 +1,22 @@
+.pagination--container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75em 2em;
+  align-items: center;
+  &__button {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border: none;
+    cursor: pointer;
+    width: 7em;
+    padding: 0.5em 1em;
+    border-radius: 0.7em;
+    text-align: left;
+    &--next {
+      margin-right: 0.75em;
+    }
+    &--prev {
+      margin-left: 0.75em;
+    }
+  }
+}
