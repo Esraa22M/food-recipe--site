@@ -26,18 +26,6 @@ export const BookmarksIcon = ({ recipe }) => {
       setIsBookmarked(true);
       setIsBookmarked(false);
     }
-    // if (!currentRecipe.bookmarked) {
-    //   let tempRecipeBookmarks = [...recipeBookmarks];
-    //   setCurrentRecipe({ bookmarked: true, ...currentRecipe });
-    //   tempRecipeBookmarks.push(currentRecipe);
-    //   setRecipeBookmarks(tempRecipeBookmarks);
-    // } else {
-    //   let tempRecipeBookmarks = recipeBookmarks.filter(
-    //     (bookmark) => bookmark.id !== currentRecipe.id
-    //   );
-    //   setRecipeBookmarks(tempRecipeBookmarks);
-    //   setCurrentRecipe({ bookmarked: false, ...currentRecipe });
-    // }
   };
   const checkIsBookmarked = () => {
     let isBookmarked = recipeBookmarks.find(
