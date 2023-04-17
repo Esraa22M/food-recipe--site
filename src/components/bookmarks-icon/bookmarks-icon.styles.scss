@@ -1,0 +1,10 @@
+.recipe--preview__details__info__time__bookmark {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  background-color: var(--primary-color);
+  &[data-clicked="true"] {
+    color: white;
+  }
+}

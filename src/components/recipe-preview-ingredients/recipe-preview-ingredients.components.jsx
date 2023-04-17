@@ -11,39 +11,48 @@ export const RecipePreviewIngredients = ({ ingredients }) => {
   let { recipeIngredients, setRecipeIngredients } = useContext(
     RecipeIngredientsContext
   );
+
+  useEffect(() => {
+    let tempIngred = ingredients.map((item) =>
+      item.quantity
+        ? (item = {
+            ...item,
+            quantity: new Fraction(getQuantity(item)).toString() + " ",
+          })
+        : { ...item, quantity: "" }
+    );
+    setRecipeIngredients(tempIngred);
+  }, [counterValue]);
+
   const getQuantity = (item) => {
     return (
-      ((item.quantity / currentRecipe.servings) * counterValue).toFixed(2) + " "
+      ((item.quantity / currentRecipe.value.servings) * counterValue).toFixed(
+        2
+      ) + " "
     );
   };
-  const handleIngredients = () => {
-    console.log(counterValue);
-    let recipeIngredients = [...ingredients].map((item, index) => (
-      <li
-        className="recipe--preview__ingredients__container__item"
-        key={index + item.description}
-      >
-        <FontAwesomeIcon
-          icon={faStar}
-          className="recipe--preview__details__info__time__icon"
-        />
-        <span className="recipe--preview__ingredients__container__item__quantity">
-          {item.quantity && new Fraction(getQuantity(item)).toString() + " "}
-          {item.unit ? item.unit + " " : ""}
-        </span>
-        <span>{item.description}</span>
-      </li>
-    ));
-    setRecipeIngredients([...recipeIngredients]);
-  };
-  useEffect(() => handleIngredients(), [counterValue]);
   return (
     <section className="recipe--preview__ingredients">
       <h2 className="recipe--preview__ingredients__header">
         RECIPE INGREDIENTS
       </h2>
       <ul className="recipe--preview__ingredients__container">
-        {recipeIngredients}
+        {recipeIngredients.map((item, index) => (
+          <li
+            className="recipe--preview__ingredients__container__item"
+            key={index + item.description}
+          >
+            <FontAwesomeIcon
+              icon={faStar}
+              className="recipe--preview__details__info__time__icon"
+            />
+            <span className="recipe--preview__ingredients__container__item__quantity">
+              {item.quantity}
+              {item.unit ? item.unit + " " : ""}
+            </span>
+            <span>{item.description}</span>
+          </li>
+        ))}
       </ul>
     </section>
   );

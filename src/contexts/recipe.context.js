@@ -1,8 +1,10 @@
 import { createContext, useState } from "react";
 import { getRecipe } from "../utils";
 import { BASE_URL, RECIPES_PER_PAGE } from "../config";
+import { useContext } from "react";
+import { RecipeIngredientsContext } from "./ingredients.contex";
 export const RecipeContext = createContext({
-  currentRecipe: {},
+  currentRecipe: { bookmarked: false, value: "" },
 
   searchStatus: "",
   currentPage: "",
@@ -17,8 +19,14 @@ export const RecipeContext = createContext({
   loadRecipe: () => {},
 });
 export const RecipeContextProvider = ({ children }) => {
-  let [currentRecipe, setCurrentRecipe] = useState("");
-  let [counterValue, setCounterValue] = useState(currentRecipe.servings);
+  let [currentRecipe, setCurrentRecipe] = useState({
+    bookmarked: false,
+    value: "",
+  });
+  let [counterValue, setCounterValue] = useState(
+    currentRecipe?.value?.servings
+  );
+  let { setRecipeIngredients } = useContext(RecipeIngredientsContext);
   let [searchRecipe, setSearchRecipe] = useState({
     query: "",
     searchResults: [],
@@ -36,7 +44,7 @@ export const RecipeContextProvider = ({ children }) => {
     try {
       const data = await getRecipe(`${BASE_URL}${recipeId}`);
       const { recipe } = data.data;
-      let currentRecipe = {
+      let recipeLoaded = {
         id: recipe.id,
         title: recipe.title,
         publisher: recipe.publisher,
@@ -46,15 +54,16 @@ export const RecipeContextProvider = ({ children }) => {
         coookingTime: recipe.cooking_time,
         ingredients: recipe.ingredients,
       };
-      setCounterValue(recipe.servings);
-      setCurrentRecipe(currentRecipe);
+      setRecipeIngredients(recipeLoaded.ingredients);
+      setCounterValue(recipeLoaded.servings);
+      setCurrentRecipe({ ...currentRecipe, value: recipeLoaded });
       window.scrollTo(0, 0);
     } catch (err) {
       throw err;
     }
   };
   const resetState = () => {
-    setCurrentRecipe("");
+    setCurrentRecipe({ bookmarked: false, value: "" });
     setSearchRecipe({ query: "", searchResults: [], isLoading: false });
     setCurrentPage(1);
   };

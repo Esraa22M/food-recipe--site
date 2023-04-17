@@ -1,15 +1,18 @@
 import "./recipe.styles.scss";
 import { useContext } from "react";
 import { RecipeContext } from "../../contexts/recipe.context";
-
 export const Recipe = ({ recipe }) => {
   let { loadRecipe, currentRecipe } = useContext(RecipeContext);
-  const handleRecipeLoading = () => loadRecipe(recipe.id);
+
+  const handleRecipeLoading = async () => {
+    await loadRecipe(recipe.id);
+  };
+
   return (
     <li className="recipes--list__recipe" onClick={handleRecipeLoading}>
       <div
         className={`recipes--list__recipe__container ${
-          recipe.id === currentRecipe.id ? "active" : ""
+          recipe.id === currentRecipe.value.id ? "active" : ""
         }`}
       >
         <figure className="recipes--list__recipe__fig">

@@ -7,15 +7,18 @@ import { BrowserRouter } from "react-router-dom";
 /* recipe context */
 import { RecipeContextProvider } from "./contexts/recipe.context";
 import { RecipeIngredientsContextProvider } from "./contexts/ingredients.contex";
+import { RecipeBookmarksContextProvider } from "./contexts/bookmarks.context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <RecipeContextProvider>
-        <RecipeIngredientsContextProvider>
-          <App />
-        </RecipeIngredientsContextProvider>
-      </RecipeContextProvider>
+      <RecipeIngredientsContextProvider>
+        <RecipeContextProvider>
+          <RecipeBookmarksContextProvider>
+            <App />
+          </RecipeBookmarksContextProvider>
+        </RecipeContextProvider>
+      </RecipeIngredientsContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

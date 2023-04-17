@@ -2,22 +2,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClockFour,
   faPeopleGroup,
-  faBookmark,
   faMinusCircle,
   faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { RecipeContext } from "../../contexts/recipe.context";
 import { useContext } from "react";
+import { BookmarksIcon } from "../bookmarks-icon/bookmarks-icon.component";
+import { RecipeIngredientsContext } from "../../contexts/ingredients.contex";
 import React from "react";
 import "./recipe-preview.details.styles.scss";
-export const RecipePreviewDetails = ({ currentRecipe }) => {
-  let { coookingTime } = currentRecipe;
-  let { setCurrentRecipe, counterValue, setCounterValue } =
+export const RecipePreviewDetails = ({ recipe }) => {
+  let { coookingTime, id } = recipe;
+  let { setCurrentRecipe, counterValue, setCounterValue, currentRecipe } =
     useContext(RecipeContext);
+
   React.useEffect(() => {
-    let tempRecipe = { ...currentRecipe };
+    let tempRecipe = { ...recipe };
     tempRecipe.servings = counterValue;
-    setCurrentRecipe(tempRecipe);
+    setCurrentRecipe({ ...currentRecipe, value: tempRecipe });
   }, [counterValue]);
   let handleServingCounterClicked = (e) => {
     let button = e.target.closest(
@@ -64,12 +66,7 @@ export const RecipePreviewDetails = ({ currentRecipe }) => {
             />
           </div>
         </div>
-        <div>
-          <FontAwesomeIcon
-            icon={faBookmark}
-            className="recipe--preview__details__info__time__bookmark"
-          />
-        </div>
+        <BookmarksIcon recipe={recipe}></BookmarksIcon>
       </div>
     </div>
   );

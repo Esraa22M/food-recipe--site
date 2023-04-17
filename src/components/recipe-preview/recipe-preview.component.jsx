@@ -7,25 +7,19 @@ import { CookingSteps } from "../cooking-steps/cooking-steps.components";
 import "./recipe-preview.styles.scss";
 export const RecipePreview = () => {
   let { currentRecipe } = useContext(RecipeContext);
-  let {
-    image,
-    title,
-    coookingTime,
-    servings,
-    ingredients,
-    publisher,
-    sourceUrl,
-  } = currentRecipe;
+  console.log(currentRecipe);
+  let { value } = currentRecipe;
+  let { image, title, sourceUrl, ingredients, publisher } = value;
   return (
     <div className="recipe-preview">
-      {!currentRecipe ? (
+      {!currentRecipe.value ? (
         <h2 className="recipe-preview__main-header">
           search for your favourite recipe!!
         </h2>
       ) : (
         <>
           <RecipePreviewFigure image={image} title={title} />
-          <RecipePreviewDetails currentRecipe={currentRecipe} />
+          <RecipePreviewDetails recipe={value} />
           <RecipePreviewIngredients ingredients={ingredients} />
           <CookingSteps sourceUrl={sourceUrl} publisher={publisher} />
         </>

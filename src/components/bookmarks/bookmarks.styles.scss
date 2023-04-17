@@ -1,12 +1,15 @@
 .bookmarks {
   position: absolute;
   width: 25rem;
+  padding-top: 1em;
   background-color: var(--light-color);
   z-index: 40;
   overflow-y: scroll;
   height: 240px;
   font-size: 1rem;
   right: 0;
+  display: flex;
+  flex-direction: column;
   box-shadow: 1px 1px 1px #888888;
   border: 1px solid var(--dark-color);
   top: 4rem;
